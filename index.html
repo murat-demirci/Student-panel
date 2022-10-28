@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        th,td{
+            width: 350px;
+        }
+        table{
+            width: 80% !important;
+            text-align: center;
+            max-height: 500px;
+            overflow-y: scroll;
+            
+        }
+        table::-webkit-scrollbar{ 
+            background-color: rgba(150, 150, 150, 0.13);
+            width: 3px;
+        }
+        table::-webkit-scrollbar-thumb{ 
+            background-color: rgba(0, 0, 0, 0.534);
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class=" container d-grid">
+        <div class=" row">
+            <form action="" class=" form-control col-lg-4 w-25" style="max-height: 450px;">
+                <div class="d-block my-5">
+                    <div class=" mb-2">
+                        <label for="id" class=" me-3">Student ID
+                            <p style="font-size: 10px; display: inline;"><b class=" text-danger">*</b> must consist of
+                                10 number</p>
+                        </label>
+                    </div>
+                    <input class="w-100" name="id" type="text" required autocomplete="off">
+                </div>
+
+                <div class="d-block my-5">
+                    <div class=" mb-2">
+                        <label for="name" class=" me-3">Student Name</label>
+                    </div>
+                    <input class="w-100" name="name" type="text" required autocomplete="off">
+                </div>
+
+                <div class="d-block my-5">
+                    <div class=" mb-2">
+                        <label for="dep" class=" me-3">Departmant</label>
+                    </div>
+                    <input class="w-100" name="dep" type="text" required autocomplete="off">
+                </div>
+
+                <button class=" btn btn-outline-primary w-100">Save</button>
+            </form>
+            <div class=" col-lg-8 w-75 d-flex justify-content-center">
+                <table class=" table table-responsive-lg table-striped-columns table-primary d-block">
+                    <tbody>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Departmant
+                            </th>
+                        </tr>
+                        <tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr><tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr>
+                        <tr class=" table-group-divider">
+                            <td>10 number</td>
+                            <td>random name</td>
+                            <td>random departmant</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script>
+
+        $('form').submit(function (e) {
+            e.preventDefault();
+            try {
+                var id = $('input[name=id]').val();
+                var name = $('input[name=name]').val();
+                var dep = $('input[name=dep]').val();
+                var frag = id.toLowerCase().match(/[a-z]/g);
+                var nameFrag = name.match(/[0-9]/g);
+                var depFrag = dep.match(/[0-9]/g);
+
+                if (frag != null || nameFrag != null || depFrag != null || id.length != 10) { throw error }
+                $('table').append('<tr class=" table-group-divider"><td>' + id + '</td><td>' + name + '</td><td>' + dep + '</td></tr>');
+                $('input').val('');
+
+            } catch (error) {
+                if (frag != null || id.length != 10) {
+                    if (frag != null) {
+                        id = '';
+                        error = "Student ID must consist of numbers";
+                        alert(error);
+                    }
+                    else if (id.length != 10) {
+                        error = "Student ID must consist of 10 number";
+                        alert(error);
+                    }
+                }
+                else if (nameFrag != null) {
+                    name = '';
+                    error = "Student name must consist of characters"
+                    alert(error);
+                }
+                else if (depFrag != null) {
+                    dep = '';
+                    error = "Student departmant must consist of characters"
+                    alert(error);
+                }
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
